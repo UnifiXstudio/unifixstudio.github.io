@@ -1,77 +1,68 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt | UnifiX Studios</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>UnifiX Studios - Kontakt</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>UnifiX Studios</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="nav-link" id="home-link">Domů</a></li>
+      <li><a href="about.html" class="nav-link" id="about-link">O nás</a></li>
+      <li><a href="contact.html" class="nav-link" id="contact-link">Kontakt</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="form-section">
+      <h2>Kontaktujte nás</h2>
+      <form action="https://formspree.io/f/myzwyqqw" method="POST" onsubmit="resetFormAfterSubmit(event)">
+        <label for="name">Jméno:</label>
+        <input type="text" id="name" name="name" required>
 
-    <header>
-        <h1>UnifiX Studios</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Domů</a></li>
-                <li><a href="about.html">O nás</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
 
-    <main>
-        <section>
-            <h2 style="text-align:center;">Kontaktujte nás</h2>
-            <form id="contact-form" action="https://formspree.io/f/myzwyqqw" method="POST">
-                <label for="name">Jméno:</label>
-                <input type="text" id="name" name="name" required placeholder="Vaše jméno">
+        <label for="message">Zpráva:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required placeholder="Vaše e-mailová adresa">
+        <button type="submit">Odeslat</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 UnifiX Studios. Všechna práva vyhrazena.</p>
+  </footer>
 
-                <label for="message">Zpráva:</label>
-                <textarea id="message" name="message" rows="4" required placeholder="Vaše zpráva"></textarea>
-
-                <button type="submit" class="button">Odeslat</button>
-            </form>
-
-            <div id="success-message">✅ Zpráva byla úspěšně odeslána!</div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 UnifiX Studios. Všechna práva vyhulena.</p>
-    </footer>
-
-    <script>
-        const form = document.getElementById('contact-form');
-        const successMessage = document.getElementById('success-message');
-
-        successMessage.style.display = 'none';
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-                method: form.method,
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    form.reset();
-                    successMessage.style.display = 'block';
-                } else {
-                    alert('❌ Chyba při odesílání formuláře.');
-                }
-            }).catch(error => {
-                alert('⚠️ Chyba připojení: ' + error.message);
-            });
-        });
-    </script>
-
+  <script>
+    function resetFormAfterSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          alert('Zpráva byla úspěšně odeslána.');
+          form.reset();
+        } else {
+          alert('Nastala chyba při odesílání zprávy.');
+        }
+      });
+    }
+    
+    const currentPage = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll('.nav-link');
+    
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>

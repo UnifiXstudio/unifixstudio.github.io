@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnifiX Studio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>UnifiX Studios - Domů</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">O nás</a></li>
-            <li><a href="contact.html">Kontakty</a></li>
-        </ul>
-    </div>
+  <header>
+    <h1>UnifiX Studios</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="nav-link" id="home-link">Domů</a></li>
+      <li><a href="about.html" class="nav-link" id="about-link">O nás</a></li>
+      <li><a href="contact.html" class="nav-link" id="contact-link">Kontakt</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section>
+      <h2>Vítejte na stránkách UnifiX Studios</h2>
+      <p>Jsme vývojářské studio a dál nwm.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 UnifiX Studios. Všechna práva vyhrazena.</p>
+  </footer>
 
-    <div class="container">
-        <h1>Vítejte na stránkách UnifiX Studios!</h1>
-        <p>Toto je domovská stránka. Vyplňte formulář v sekci Kontakty, pokud máte nějaké dotazy.</p>
-    </div>
+  <script>
+    // Funkce pro podtržení aktuální stránky
+    const currentPage = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll('.nav-link');
+    
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>
