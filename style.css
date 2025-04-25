@@ -1,117 +1,153 @@
-/* Import moderního fontu */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* Globální nastavení */
-body {
-  font-family: 'Poppins', sans-serif;
+:root {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --accent: #e50914;
+  --hover-accent: #ff2c2c;
+  --card-bg: #1e1e1e;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #121212;
-  color: #e0e0e0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 header {
   background-color: #1f1f1f;
-  color: #ffffff;
-  padding: 20px;
+  padding: 30px 20px;
   text-align: center;
+  animation: fadeInDown 0.8s ease;
 }
 
 .logo {
-  max-height: 60px;
-  display: block;
-  margin: 0 auto 10px;
+  max-height: 70px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 2rem;
 }
 
 nav {
-  background-color: #2a2a2a;
-  text-align: center;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin: 0 15px;
+  list-style: none;
+  display: flex;
+  gap: 30px;
 }
 
 nav ul li a {
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: 600;
-  font-size: 16px;
+  position: relative;
+  transition: color 0.3s;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-  text-decoration: underline;
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s;
 }
 
-footer {
-  text-align: center;
-  background-color: #1f1f1f;
-  color: white;
-  padding: 10px;
-  position: fixed;
+nav ul li a:hover::after {
   width: 100%;
-  bottom: 0;
+}
+
+nav ul li a.active {
+  color: var(--accent);
 }
 
 main {
-  padding: 20px;
-  text-align: center;
+  padding: 40px 20px;
+  animation: fadeInUp 0.8s ease;
 }
 
-h2 {
-  font-size: 24px;
-  color: #ffffff;
-}
-
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #1e1e1e;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-form input,
-form textarea,
-form button {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
+section {
+  max-width: 800px;
+  margin: auto;
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: fadeIn 1s ease;
 }
 
 form input,
 form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
   background-color: #2a2a2a;
-  color: #ffffff;
+  color: #fff;
 }
 
 form button {
-  background-color: #e50914;
-  color: white;
+  padding: 12px 20px;
+  background-color: var(--accent);
+  border: none;
+  color: #fff;
+  border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 form button:hover {
-  background-color: #ff2c2c;
+  background-color: var(--hover-accent);
 }
 
-form label {
-  font-size: 16px;
-  text-align: left;
-  display: block;
-  margin-top: 10px;
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1f1f1f;
+  color: #ccc;
+  margin-top: 40px;
+}
+
+/* Responsivita */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Animace */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
