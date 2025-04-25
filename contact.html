@@ -7,13 +7,14 @@
 </head>
 <body>
   <header>
+    <img src="images/unifix-logo.png" alt="UnifiX Studios Logo" class="logo">
     <h1>UnifiX Studios</h1>
   </header>
   <nav>
     <ul>
-      <li><a href="index.html" class="nav-link" id="home-link">Domů</a></li>
-      <li><a href="about.html" class="nav-link" id="about-link">O nás</a></li>
-      <li><a href="contact.html" class="nav-link" id="contact-link">Kontakt</a></li>
+      <li><a href="index.html" class="nav-link">Domů</a></li>
+      <li><a href="about.html" class="nav-link">O nás</a></li>
+      <li><a href="contact.html" class="nav-link">Kontakt</a></li>
     </ul>
   </nav>
   <main>
@@ -54,11 +55,9 @@
         }
       });
     }
-    
+
     const currentPage = window.location.pathname.split("/").pop();
-    const links = document.querySelectorAll('.nav-link');
-    
-    links.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
       if (link.getAttribute('href') === currentPage) {
         link.classList.add('active');
       }
