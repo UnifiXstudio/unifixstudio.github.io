@@ -2,38 +2,47 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>UnifiX Studios - Domů</title>
-  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnifiX Studios</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <img src="images/unifix-logo.png" alt="UnifiX Studios Logo" class="logo">
-    <h1>UnifiX Studios</h1>
-  </header>
+
+<header>
+  <h1>UnifiX Studios ™</h1>
   <nav>
     <ul>
-      <li><a href="index.html" class="nav-link">Domů</a></li>
-      <li><a href="about.html" class="nav-link">O nás</a></li>
-      <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+      <li><a href="index.html" class="active">Domů</a></li>
+      <li><a href="about.html">O nás</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="team.html">Tým</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
     </ul>
   </nav>
-  <main>
-    <section>
-      <h2>Vítej v UnifiX Studios</h2>
-      <p>Jsme tým tvůrců, vývojářů a chaos kontrolerů. V roce 2025 přinášíme hry, co tě pohltí – a nevrátí zpátky.</p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 UnifiX Studios. Všechna práva vyhrazena.</p>
-  </footer>
-  <script>
-    const currentPage = window.location.pathname.split("/").pop();
-    document.querySelectorAll('.nav-link').forEach(link => {
-      if (link.getAttribute('href') === currentPage) {
-        link.classList.add('active');
-      }
-    });
-  </script>
+</header>
+
+<main>
+  <section id="welcome">
+    <h2>Vítejte v UnifiX Studios</h2>
+    <p>Jsme kolektiv mladých tvůrců specializovaných na střih videí, postprodukci a obsah pro sociální sítě. Naše práce pomáhá projektům vyniknout a vypadat profesionálně.</p>
+    <a class="cta" href="contact.html">Kontaktujte nás</a>
+  </section>
+
+  <section id="overview">
+    <h2>Co nabízíme</h2>
+    <ul>
+      <li>Střih videí pro YouTube, TikTok a další platformy</li>
+      <li>Color grading a vizuální úpravy</li>
+      <li>Motion graphics a animace</li>
+      <li>Poradenství v tvorbě obsahu</li>
+    </ul>
+    <p>Podívej se na naše <a href="portfolio.html">portfolio</a> a zjisti, jak můžeme pomoct tvým projektům vyniknout.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 UnifiX Studios. Všechna práva vyhrazena.</p>
+</footer>
+
 </body>
 </html>
