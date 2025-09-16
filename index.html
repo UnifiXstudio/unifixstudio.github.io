@@ -47,27 +47,35 @@
   <p>© 2025 UnifiX Studios. Všechna práva vyhrazena.</p>
 </footer>
 
+<!-- Skript na přepínání dark/light režimu se smooth efektem -->
 <script>
 const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 
-// inicializace podle localStorage nebo nastavení systému
+// Inicializace podle localStorage nebo nastavení systému
 const savedTheme = localStorage.getItem("theme");
-if(savedTheme === "dark"){
-  body.classList.add("dark-mode");
-  themeToggle.textContent = "☀️";
-}else if(savedTheme === "light"){
-  body.classList.remove("dark-mode");
-  themeToggle.textContent = "🌙";
-}else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+if(savedTheme){
+  if(savedTheme === "dark"){
+    body.classList.add("dark-mode");
+    themeToggle.textContent = "☀️";
+  } else {
+    body.classList.add("light-mode");
+    themeToggle.textContent = "🌙";
+  }
+} else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
   body.classList.add("dark-mode");
   themeToggle.textContent = "☀️";
   localStorage.setItem("theme", "dark");
+} else {
+  body.classList.add("light-mode");
+  themeToggle.textContent = "🌙";
 }
 
-// přepínání tématu
+// Přepínání režimu
 themeToggle.addEventListener("click", () => {
   body.classList.toggle("dark-mode");
+  body.classList.toggle("light-mode");
+
   if(body.classList.contains("dark-mode")){
     themeToggle.textContent = "☀️";
     localStorage.setItem("theme", "dark");
