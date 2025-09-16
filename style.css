@@ -152,28 +152,37 @@ footer {
   margin-top: 40px;
 }
 
+/* Tlačítko pro přepínání režimu */
 .theme-toggle {
   position: fixed;
   top: 15px;
   left: 15px;
+  width: 50px;
+  height: 50px;
   background: #ff3b3b;
   border: none;
   border-radius: 50%;
-  width: 45px;   /* pevná šířka */
-  height: 45px;  /* pevná výška */
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 24px;
   cursor: pointer;
-  font-size: 20px;
   color: #fff;
   z-index: 1000;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .theme-toggle:hover {
   background: #e63636;
+  transform: scale(1.1); /* lehké zvětšení při hover */
 }
+
+/* Smooth přechod pro celou stránku */
+body, header, footer, .member, nav ul li a, main, .cta, button {
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* Dark mode / Light mode už máš definovaný */
 
 body.light-mode {
   background-color: #f2f2f2;
