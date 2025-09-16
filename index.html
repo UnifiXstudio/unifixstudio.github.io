@@ -47,12 +47,11 @@
   <p>© 2025 UnifiX Studios. Všechna práva vyhrazena.</p>
 </footer>
 
-<!-- Skript na přepínání dark/light režimu se smooth efektem -->
+<!-- dark/light smooth effect -->
 <script>
 const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 
-// Inicializace podle localStorage nebo nastavení systému
 const savedTheme = localStorage.getItem("theme");
 if(savedTheme){
   if(savedTheme === "dark"){
@@ -71,7 +70,6 @@ if(savedTheme){
   themeToggle.textContent = "🌙";
 }
 
-// Přepínání režimu
 themeToggle.addEventListener("click", () => {
   body.classList.toggle("dark-mode");
   body.classList.toggle("light-mode");
