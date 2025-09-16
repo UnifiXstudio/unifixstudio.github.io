@@ -249,7 +249,15 @@ body.light-mode footer {
     height: 180px;
   }
 
-  .cta, button, .theme-toggle {
+  /* Oprava tlačítek */
+  .cta, button {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 20px; 
+    font-size: 16px;
+  }
+
+  .theme-toggle {
     width: 45px;
     height: 45px;
     font-size: 20px;
