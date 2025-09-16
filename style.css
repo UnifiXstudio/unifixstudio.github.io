@@ -1,26 +1,25 @@
-/* style.css - UnifiX Studios */
 
-/* Reset a základní styly */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
-  transition: background-color 0.5s, color 0.5s; /* smooth přechod pro všechny elementy */
 }
 
 body {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #0d0d0d;
-  color: #f2f2f2;
+  transition: background-color 0.5s, color 0.5s;
 }
 
 a {
   color: #ff3b3b;
   text-decoration: none;
+  transition: color 0.5s;
 }
 
 a:hover {
@@ -32,6 +31,7 @@ header {
   padding: 20px 0;
   text-align: center;
   border-bottom: 2px solid #ff3b3b;
+  transition: background-color 0.5s;
 }
 
 header h1 {
@@ -64,12 +64,14 @@ main {
   max-width: 1000px;
   margin: auto;
   flex: 1;
+  transition: color 0.5s;
 }
 
 h2 {
   font-size: 2em;
   margin-bottom: 20px;
   color: #ff3b3b;
+  transition: color 0.5s;
 }
 
 p, ul {
@@ -93,64 +95,13 @@ ul li {
   background-color: #e63636;
 }
 
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.iframe-video {
-  width: 100%;
-  height: 200px;
-  border: none;
-}
-
-.team {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.member {
-  background-color: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input, textarea {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-}
-
-button {
-  padding: 12px;
-  background-color: #ff3b3b;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background-color: #e63636;
-}
-
 footer {
   background-color: #1a1a1a;
   text-align: center;
   padding: 20px;
   border-top: 2px solid #ff3b3b;
   margin-top: 40px;
+  transition: background-color 0.5s, color 0.5s;
 }
 
 /* Tlačítko pro přepínání režimu */
@@ -178,7 +129,7 @@ footer {
   transform: scale(1.1);
 }
 
-/* Dark / Light mode */
+/* Dark mode */
 body.dark-mode {
   background-color: #f2f2f2;
   color: #0d0d0d;
@@ -186,7 +137,6 @@ body.dark-mode {
 
 body.dark-mode header {
   background-color: #e6e6e6;
-  border-bottom: 2px solid #ff3b3b;
 }
 
 body.dark-mode nav ul li a {
@@ -199,21 +149,11 @@ body.dark-mode nav ul li a.active {
   color: #fff;
 }
 
-body.dark-mode .member {
-  background-color: #e6e6e6;
-}
-
 body.dark-mode footer {
   background-color: #e6e6e6;
   border-top: 2px solid #ff3b3b;
 }
 
-/* Smooth přechod pro všechny prvky */
-body, header, footer, main, .member, .cta, nav ul li a, button {
-  transition: background-color 0.5s, color 0.5s;
-}
-
-/* Media queries */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -224,7 +164,7 @@ body, header, footer, main, .member, .cta, nav ul li a, button {
     padding: 20px 10px;
   }
 
-  h1 {
+  header h1 {
     font-size: 2em;
   }
 
@@ -232,26 +172,8 @@ body, header, footer, main, .member, .cta, nav ul li a, button {
     font-size: 1.5em;
   }
 
-  .portfolio {
-    grid-template-columns: 1fr;
-  }
-
-  .team {
-    grid-template-columns: 1fr;
-  }
-
-  .iframe-video {
-    height: 180px;
-  }
-
-  .cta {
-    width: 100%;
-  }
-
-  /* Fix pro tlačítko na mobilu */
-  .theme-toggle {
+  .cta, .theme-toggle {
     width: 50px;
     height: 50px;
-    font-size: 24px;
   }
 }

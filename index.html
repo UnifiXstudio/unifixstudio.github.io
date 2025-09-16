@@ -1,251 +1,82 @@
-/* style.css - UnifiX Studios */
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnifiX Studios</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* Reset a základní styly */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-  transition: background-color 0.5s, color 0.5s; /* smooth přechod pro všechny elementy */
+<!-- Tlačítko pro přepínání režimu -->
+<button class="theme-toggle" id="themeToggle">🌙</button>
+
+<header>
+  <h1>UnifiX Studios ™</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Domů</a></li>
+      <li><a href="about.html">O nás</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="team.html">Tým</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="welcome">
+    <h2>Vítejte v UnifiX Studios</h2>
+    <p>Jsme kolektiv mladých tvůrců specializovaných na střih videí, postprodukci a obsah pro sociální sítě. Naše práce pomáhá projektům vyniknout a vypadat profesionálně.</p>
+    <a class="cta" href="contact.html">Kontaktujte nás</a>
+  </section>
+
+  <section id="overview">
+    <h2>Co nabízíme</h2>
+    <ul>
+      <li>Střih videí pro YouTube, TikTok a další platformy</li>
+      <li>Color grading a vizuální úpravy</li>
+      <li>Motion graphics a animace</li>
+      <li>Poradenství v tvorbě obsahu</li>
+    </ul>
+    <p>Podívej se na naše <a href="portfolio.html">portfolio</a> a zjisti, jak můžeme pomoct tvým projektům vyniknout.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 UnifiX Studios. Všechna práva vyhrazena.</p>
+</footer>
+
+<script>
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+
+// inicializace podle localStorage nebo nastavení systému
+const savedTheme = localStorage.getItem("theme");
+if(savedTheme === "dark"){
+  body.classList.add("dark-mode");
+  themeToggle.textContent = "☀️";
+}else if(savedTheme === "light"){
+  body.classList.remove("dark-mode");
+  themeToggle.textContent = "🌙";
+}else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+  body.classList.add("dark-mode");
+  themeToggle.textContent = "☀️";
+  localStorage.setItem("theme", "dark");
 }
 
-body {
-  background-color: #0d0d0d;
-  color: #f2f2f2;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-a {
-  color: #ff3b3b;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-header {
-  background-color: #1a1a1a;
-  padding: 20px 0;
-  text-align: center;
-  border-bottom: 2px solid #ff3b3b;
-}
-
-header h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-nav ul li a {
-  color: #f2f2f2;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: background 0.3s, color 0.5s;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-  background-color: #ff3b3b;
-  color: #fff;
-}
-
-main {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: auto;
-  flex: 1;
-}
-
-h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #ff3b3b;
-}
-
-p, ul {
-  margin-bottom: 20px;
-}
-
-ul li {
-  margin-bottom: 10px;
-}
-
-.cta {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #ff3b3b;
-  color: #fff;
-  border-radius: 5px;
-  transition: background 0.3s, color 0.5s;
-}
-
-.cta:hover {
-  background-color: #e63636;
-}
-
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.iframe-video {
-  width: 100%;
-  height: 200px;
-  border: none;
-}
-
-.team {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.member {
-  background-color: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input, textarea {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-}
-
-button {
-  padding: 12px;
-  background-color: #ff3b3b;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background-color: #e63636;
-}
-
-footer {
-  background-color: #1a1a1a;
-  text-align: center;
-  padding: 20px;
-  border-top: 2px solid #ff3b3b;
-  margin-top: 40px;
-}
-
-/* Tlačítko pro přepínání režimu */
-.theme-toggle {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  width: 50px;
-  height: 50px;
-  background: #ff3b3b;
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  cursor: pointer;
-  color: #fff;
-  z-index: 1000;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.theme-toggle:hover {
-  background: #e63636;
-  transform: scale(1.1);
-}
-
-/* Dark mode */
-body.dark-mode {
-  background-color: #f2f2f2;
-  color: #0d0d0d;
-}
-
-body.dark-mode header {
-  background-color: #e6e6e6;
-  border-bottom: 2px solid #ff3b3b;
-}
-
-body.dark-mode nav ul li a {
-  color: #0d0d0d;
-}
-
-body.dark-mode nav ul li a:hover,
-body.dark-mode nav ul li a.active {
-  background-color: #ff3b3b;
-  color: #fff;
-}
-
-body.dark-mode .member {
-  background-color: #e6e6e6;
-}
-
-body.dark-mode footer {
-  background-color: #e6e6e6;
-  border-top: 2px solid #ff3b3b;
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
+// přepínání tématu
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  if(body.classList.contains("dark-mode")){
+    themeToggle.textContent = "☀️";
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeToggle.textContent = "🌙";
+    localStorage.setItem("theme", "light");
   }
+});
+</script>
 
-  main {
-    padding: 20px 10px;
-  }
-
-  h1 {
-    font-size: 2em;
-  }
-
-  h2 {
-    font-size: 1.5em;
-  }
-
-  .portfolio {
-    grid-template-columns: 1fr;
-  }
-
-  .team {
-    grid-template-columns: 1fr;
-  }
-
-  .iframe-video {
-    height: 180px;
-  }
-
-  .cta, button {
-    width: 100%;
-  }
-
-  /* Fix pro tlačítko na mobilu */
-  .theme-toggle {
-    width: 45px;
-    height: 45px;
-    font-size: 22px;
-  }
-}
+</body>
+</html>
