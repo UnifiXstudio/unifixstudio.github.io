@@ -1,10 +1,12 @@
+/* style.css - UnifiX Studios */
 
+/* Reset a základní styly */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
-  transition: background 0.5s, color 0.5s; /* Smooth přechod pro všechny elementy */
+  transition: background 0.5s, color 0.5s; /* Smooth přechod pro většinu elementů */
 }
 
 body {
@@ -119,6 +121,7 @@ ul li {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
+  color: #f2f2f2;
   transition: background 0.5s, color 0.5s;
 }
 
@@ -130,9 +133,17 @@ form {
 
 input, textarea {
   padding: 10px;
-  border: none;
+  border: 1px solid #555;
   border-radius: 5px;
   width: 100%;
+  background-color: #2a2a2a;
+  color: #f2f2f2;
+  transition: background 0.5s, color 0.5s, border-color 0.5s;
+}
+
+input:focus, textarea:focus {
+  border-color: #ff3b3b;
+  outline: none;
 }
 
 button {
@@ -158,10 +169,11 @@ footer {
   transition: background 0.5s, border-color 0.5s, color 0.5s;
 }
 
+/* Tlačítko přepínání režimu */
 .theme-toggle {
   position: fixed;
   top: 15px;
-  left: 15px; /* Levý roh */
+  left: 15px;
   background: #ff3b3b;
   border: none;
   border-radius: 50%;
@@ -180,6 +192,7 @@ footer {
   transform: scale(1.1);
 }
 
+/* Light mode */
 body.light-mode {
   background-color: #f2f2f2;
   color: #0d0d0d;
@@ -202,13 +215,23 @@ body.light-mode nav ul li a.active {
 
 body.light-mode .member {
   background-color: #e6e6e6;
+  color: #0d0d0d;
+}
+
+body.light-mode input,
+body.light-mode textarea {
+  background-color: #fff;
+  color: #0d0d0d;
+  border-color: #ccc;
 }
 
 body.light-mode footer {
   background-color: #e6e6e6;
   border-top: 2px solid #ff3b3b;
+  color: #0d0d0d;
 }
 
+/* Podpora pro výchozí nastavení zařízení */
 @media (prefers-color-scheme: light) {
   body:not(.dark-mode) {
     background-color: #f2f2f2;
@@ -246,7 +269,11 @@ body.light-mode footer {
     height: 180px;
   }
 
-  .cta, button, .theme-toggle {
+  .cta, button {
+    width: 100%;
+  }
+
+  .theme-toggle {
     width: 45px;
     height: 45px;
     font-size: 20px;
