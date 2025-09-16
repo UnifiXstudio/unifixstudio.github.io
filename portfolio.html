@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<!-- Tlačítko pro přepínání režimu -->
+<button class="theme-toggle" id="themeToggle">🌙</button>
+
 <header>
   <h1>UnifiX Studios ™</h1>
   <nav>
@@ -37,5 +40,51 @@
   <p>2025 UnifiX Studios.</p>
 </footer>
 
+<!-- Skript na přepínání dark/light režimu -->
+<script>
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+
+// Zjistíme uložené nastavení
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme) {
+  if (savedTheme === "dark") {
+    body.classList.remove("light-mode");
+    body.classList.add("dark-mode");
+    themeToggle.textContent = "🌙";
+  } else {
+    body.classList.remove("dark-mode");
+    body.classList.add("light-mode");
+    themeToggle.textContent = "☀️";
+  }
+} else {
+  // Při první návštěvě použijeme nastavení systému
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    body.classList.add("dark-mode");
+    themeToggle.textContent = "🌙";
+    localStorage.setItem("theme", "dark");
+  } else {
+    body.classList.add("light-mode");
+    themeToggle.textContent = "☀️";
+    localStorage.setItem("theme", "light");
+  }
+}
+
+themeToggle.addEventListener("click", () => {
+  if (body.classList.contains("dark-mode")) {
+    body.classList.remove("dark-mode");
+    body.classList.add("light-mode");
+    themeToggle.textContent = "☀️";
+    localStorage.setItem("theme", "light");
+  } else {
+    body.classList.remove("light-mode");
+    body.classList.add("dark-mode");
+    themeToggle.textContent = "🌙";
+    localStorage.setItem("theme", "dark");
+  }
+});
+</script>
+
 </body>
-</html
+</html>
