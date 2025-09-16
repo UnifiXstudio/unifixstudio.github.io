@@ -1,4 +1,4 @@
-/* Tlačítko přepínání tmavého/světlého režimu */
+
 .theme-toggle {
   position: fixed;
   top: 15px;
@@ -23,7 +23,6 @@
   transform: scale(1.1);
 }
 
-/* Dark / Light mode */
 body {
   background-color: #0d0d0d;
   color: #f2f2f2;
@@ -39,7 +38,6 @@ header, footer, .member, input, textarea, button, .cta {
   transition: background 0.5s, color 0.5s;
 }
 
-/* Příklad pro formuláře */
 input, textarea {
   background-color: #2a2a2a;
   color: #f2f2f2;
@@ -55,7 +53,6 @@ body.light-mode input, body.light-mode textarea {
   border: 1px solid #999;
 }
 
-/* Kartičky členů týmu */
 .member {
   background-color: #1a1a1a;
   color: #f2f2f2;

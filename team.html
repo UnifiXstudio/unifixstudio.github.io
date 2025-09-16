@@ -55,7 +55,6 @@
 const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 
-// Zjistíme uložené nastavení
 const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme) {
@@ -69,7 +68,7 @@ if (savedTheme) {
     themeToggle.textContent = "☀️";
   }
 } else {
-  // Při první návštěvě použijeme nastavení systému
+
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     body.classList.add("dark-mode");
     themeToggle.textContent = "🌙";
