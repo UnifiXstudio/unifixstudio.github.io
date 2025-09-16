@@ -1,170 +1,4 @@
-/* style.css - UnifiX Studios */
-
-/* Reset a základní styly */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Smooth přechod jen pro pozadí a barvu textu */
-body, header, footer, .member, .cta, button, input, textarea, nav ul li a, h2 {
-  transition: background 0.5s, color 0.5s;
-}
-
-body {
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #0d0d0d;
-  color: #f2f2f2;
-}
-
-a {
-  color: #ff3b3b;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-header {
-  background-color: #1a1a1a;
-  padding: 20px 0;
-  text-align: center;
-  border-bottom: 2px solid #ff3b3b;
-}
-
-header h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-nav ul li a {
-  color: #f2f2f2;
-  padding: 8px 15px;
-  border-radius: 5px;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-  background-color: #ff3b3b;
-  color: #fff;
-}
-
-main {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: auto;
-  flex: 1;
-}
-
-h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #ff3b3b;
-}
-
-p, ul {
-  margin-bottom: 20px;
-}
-
-ul li {
-  margin-bottom: 10px;
-}
-
-/* CTA button */
-.cta {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #ff3b3b;
-  color: #fff;
-  border-radius: 5px;
-}
-
-.cta:hover {
-  background-color: #e63636;
-}
-
-/* Portfolio a Team */
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.iframe-video {
-  width: 100%;
-  height: 200px;
-  border: none;
-}
-
-.team {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.member {
-  background-color: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-/* Formuláře */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input, textarea {
-  padding: 10px;
-  border: 1px solid #555;
-  border-radius: 5px;
-  width: 100%;
-  background-color: #2a2a2a;
-  color: #f2f2f2;
-}
-
-input::placeholder, textarea::placeholder {
-  color: #bbb;
-}
-
-/* Tlačítka */
-button {
-  padding: 12px;
-  background-color: #ff3b3b;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #e63636;
-}
-
-footer {
-  background-color: #1a1a1a;
-  text-align: center;
-  padding: 20px;
-  border-top: 2px solid #ff3b3b;
-  margin-top: 40px;
-}
-
-/* Tlačítko přepínání režimu */
+/* Tlačítko přepínání tmavého/světlého režimu */
 .theme-toggle {
   position: fixed;
   top: 15px;
@@ -174,12 +8,12 @@ footer {
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
   font-size: 22px;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* emoji bude přesně uprostřed */
+  cursor: pointer;
   z-index: 1000;
   transition: background 0.3s, transform 0.3s;
 }
@@ -189,29 +23,30 @@ footer {
   transform: scale(1.1);
 }
 
-/* Light mode */
+/* Dark / Light mode */
+body {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+  transition: background 0.5s, color 0.5s;
+}
+
 body.light-mode {
   background-color: #f2f2f2;
   color: #0d0d0d;
 }
 
-body.light-mode header {
-  background-color: #e6e6e6;
-  border-bottom: 2px solid #ff3b3b;
+header, footer, .member, input, textarea, button, .cta {
+  transition: background 0.5s, color 0.5s;
 }
 
-body.light-mode nav ul li a {
-  color: #0d0d0d;
-}
-
-body.light-mode nav ul li a:hover,
-body.light-mode nav ul li a.active {
-  background-color: #ff3b3b;
-  color: #fff;
-}
-
-body.light-mode .member {
-  background-color: #e6e6e6;
+/* Příklad pro formuláře */
+input, textarea {
+  background-color: #2a2a2a;
+  color: #f2f2f2;
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
 }
 
 body.light-mode input, body.light-mode textarea {
@@ -220,46 +55,16 @@ body.light-mode input, body.light-mode textarea {
   border: 1px solid #999;
 }
 
-body.light-mode footer {
-  background-color: #e6e6e6;
-  border-top: 2px solid #ff3b3b;
+/* Kartičky členů týmu */
+.member {
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  main {
-    padding: 20px 10px;
-  }
-
-  h1 {
-    font-size: 2em;
-  }
-
-  h2 {
-    font-size: 1.5em;
-  }
-
-  .portfolio {
-    grid-template-columns: 1fr;
-  }
-
-  .team {
-    grid-template-columns: 1fr;
-  }
-
-  .iframe-video {
-    height: 180px;
-  }
-
-  .cta, button, .theme-toggle {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-    padding: 0;
-  }
+body.light-mode .member {
+  background-color: #e6e6e6;
+  color: #0d0d0d;
 }
