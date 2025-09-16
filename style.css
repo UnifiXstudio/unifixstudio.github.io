@@ -9,15 +9,14 @@
 }
 
 body {
-  background-color: #0d0d0d;
-  color: #f2f2f2;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #0d0d0d;
+  color: #f2f2f2;
 }
 
-/* Odkazy */
 a {
   color: #ff3b3b;
   text-decoration: none;
@@ -27,7 +26,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Header */
 header {
   background-color: #1a1a1a;
   padding: 20px 0;
@@ -60,7 +58,6 @@ nav ul li a.active {
   color: #fff;
 }
 
-/* Main */
 main {
   padding: 40px 20px;
   max-width: 1000px;
@@ -95,7 +92,6 @@ ul li {
   background-color: #e63636;
 }
 
-/* Portfolio */
 .portfolio {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -108,7 +104,6 @@ ul li {
   border: none;
 }
 
-/* Team */
 .team {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -122,7 +117,6 @@ ul li {
   text-align: center;
 }
 
-/* Formuláře */
 form {
   display: flex;
   flex-direction: column;
@@ -150,7 +144,6 @@ button:hover {
   background-color: #e63636;
 }
 
-/* Footer */
 footer {
   background-color: #1a1a1a;
   text-align: center;
@@ -159,11 +152,10 @@ footer {
   margin-top: 40px;
 }
 
-/* Tlačítko přepínání režimu */
 .theme-toggle {
   position: fixed;
   top: 15px;
-  right: 15px;
+  left: 15px; /* Přesunuto do levého rohu */
   background: #ff3b3b;
   border: none;
   border-radius: 50%;
@@ -179,37 +171,44 @@ footer {
   background: #e63636;
 }
 
-/* Dark mode */
-body.dark-mode {
+/* Light mode */
+body.light-mode {
   background-color: #f2f2f2;
   color: #0d0d0d;
 }
 
-body.dark-mode header {
+body.light-mode header {
   background-color: #e6e6e6;
   border-bottom: 2px solid #ff3b3b;
 }
 
-body.dark-mode nav ul li a {
+body.light-mode nav ul li a {
   color: #0d0d0d;
 }
 
-body.dark-mode nav ul li a:hover,
-body.dark-mode nav ul li a.active {
+body.light-mode nav ul li a:hover,
+body.light-mode nav ul li a.active {
   background-color: #ff3b3b;
   color: #fff;
 }
 
-body.dark-mode .member {
+body.light-mode .member {
   background-color: #e6e6e6;
 }
 
-body.dark-mode footer {
+body.light-mode footer {
   background-color: #e6e6e6;
   border-top: 2px solid #ff3b3b;
 }
- 
-/* Responsivita */
+
+/* Podpora pro výchozí nastavení zařízení */
+@media (prefers-color-scheme: light) {
+  body:not(.dark-mode) {
+    background-color: #f2f2f2;
+    color: #0d0d0d;
+  }
+}
+
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;

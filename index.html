@@ -9,7 +9,7 @@
 <body>
 
 <!-- Tlačítko pro přepínání režimu -->
-<button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+<button class="theme-toggle" id="themeToggle">🌙</button>
 
 <header>
   <h1>UnifiX Studios ™</h1>
@@ -49,9 +49,37 @@
 
 <!-- Skript na přepínání dark/light režimu -->
 <script>
-  function toggleTheme() {
-    document.body.classList.toggle("dark-mode");
+  const themeToggle = document.getElementById("themeToggle");
+  const body = document.body;
+
+  // zjistíme uložené nastavení
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme) {
+    if (savedTheme === "dark") {
+      body.classList.add("dark-mode");
+      themeToggle.textContent = "☀️";
+    }
+  } else {
+    // při první návštěvě použijeme nastavení systému
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      body.classList.add("dark-mode");
+      themeToggle.textContent = "☀️";
+      localStorage.setItem("theme", "dark");
+    }
   }
+
+  themeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+      themeToggle.textContent = "☀️";
+      localStorage.setItem("theme", "dark");
+    } else {
+      themeToggle.textContent = "🌙";
+      localStorage.setItem("theme", "light");
+    }
+  });
 </script>
 
 </body>
