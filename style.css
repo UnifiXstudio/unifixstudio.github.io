@@ -6,6 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
+  transition: background-color 0.5s, color 0.5s; /* smooth přechod pro všechny elementy */
 }
 
 body {
@@ -49,7 +50,7 @@ nav ul li a {
   color: #f2f2f2;
   padding: 8px 15px;
   border-radius: 5px;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.5s;
 }
 
 nav ul li a:hover,
@@ -85,7 +86,7 @@ ul li {
   background-color: #ff3b3b;
   color: #fff;
   border-radius: 5px;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.5s;
 }
 
 .cta:hover {
@@ -174,52 +175,45 @@ footer {
 
 .theme-toggle:hover {
   background: #e63636;
-  transform: scale(1.1); /* lehké zvětšení při hover */
+  transform: scale(1.1);
 }
 
-/* Smooth přechod pro celou stránku */
-body, header, footer, .member, nav ul li a, main, .cta, button {
-  transition: background-color 0.5s, color 0.5s;
-}
-
-/* Dark mode / Light mode už máš definovaný */
-
-body.light-mode {
+/* Dark / Light mode */
+body.dark-mode {
   background-color: #f2f2f2;
   color: #0d0d0d;
 }
 
-body.light-mode header {
+body.dark-mode header {
   background-color: #e6e6e6;
   border-bottom: 2px solid #ff3b3b;
 }
 
-body.light-mode nav ul li a {
+body.dark-mode nav ul li a {
   color: #0d0d0d;
 }
 
-body.light-mode nav ul li a:hover,
-body.light-mode nav ul li a.active {
+body.dark-mode nav ul li a:hover,
+body.dark-mode nav ul li a.active {
   background-color: #ff3b3b;
   color: #fff;
 }
 
-body.light-mode .member {
+body.dark-mode .member {
   background-color: #e6e6e6;
 }
 
-body.light-mode footer {
+body.dark-mode footer {
   background-color: #e6e6e6;
   border-top: 2px solid #ff3b3b;
 }
 
-@media (prefers-color-scheme: light) {
-  body:not(.dark-mode) {
-    background-color: #f2f2f2;
-    color: #0d0d0d;
-  }
+/* Smooth přechod pro všechny prvky */
+body, header, footer, main, .member, .cta, nav ul li a, button {
+  transition: background-color 0.5s, color 0.5s;
 }
 
+/* Media queries */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -250,7 +244,14 @@ body.light-mode footer {
     height: 180px;
   }
 
-  .cta, button {
+  .cta {
     width: 100%;
+  }
+
+  /* Fix pro tlačítko na mobilu */
+  .theme-toggle {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
   }
 }
